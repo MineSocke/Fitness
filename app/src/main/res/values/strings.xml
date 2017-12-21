@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">AK Fit</string>
+    <string name="app_intro">AK Fit</string>
+    <string name="share_text_main">I just finished working out with AKFit! You should download it too: http://google.de</string>
+    <string name="share_text_sub">AK Fit - Download now!</string>
+    <string name="workout_count">Total Exercices: </string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Daily Workout</string>
+    <string name="slide_1_desc">The easiest way to build strong muscles and lose fat!</string>
+
+    <string name="slide_2_title">Don\'t give up</string>
+    <string name="slide_2_desc">Otherwise you won\'t reach your aim!</string>
+
+    <string name="slide_3_title">100% Free</string>
+    <string name="slide_3_desc">All Workouts are and will stay free!</string>
+
+    <string name="slide_4_title">World Travel</string>
+    <string name="slide_4_desc">Book tickets of any transportation and travel the world!</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> AKFit-> clear data</string>
+    <string name="play_again">Play Again</string>
+
+
+    <string-array name="items_name">
+        <item>Test</item>
+        <item>Test</item>
+        <item>Test</item>
+    </string-array>
+
+    <string-array name="items_number">
+        <item>Number</item>
+        <item>Number</item>
+        <item>Number</item>
+    </string-array>
+</resources>
