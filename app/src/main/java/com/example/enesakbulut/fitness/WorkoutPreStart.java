@@ -23,6 +23,7 @@ public class WorkoutPreStart extends AppCompatActivity {
     int workoutTime;
     int countWorkout;
     ArrayList<Integer> map = new ArrayList<>();
+    ArrayList<String> workouts = new ArrayList<>();
 
     TextView tvTime;
     ImageView ivStart;
@@ -108,11 +109,20 @@ public class WorkoutPreStart extends AppCompatActivity {
             Log.e("Picture: ", map.get(i) + "");
             linearLayout.addView(imageViews[i]);
 
+            /*
             ImageView imageView = new ImageView(this);
             imageView.setTag("i");
             imageView.setLayoutParams(new android.view.ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200));
             imageView.setImageResource(R.drawable.bizeps);
             linearLayout2.addView(imageView);
+            */
+
+            TextView textView = new TextView(this);
+            textView.setTag("i");
+            textView.setLayoutParams(new android.view.ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200));
+            textView.setTextSize(19);
+            textView.setText(workoutData.getWorkouts(i));
+            linearLayout2.addView(textView);
 
         }
     }
