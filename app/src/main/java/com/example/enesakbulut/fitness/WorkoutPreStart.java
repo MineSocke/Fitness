@@ -90,9 +90,10 @@ public class WorkoutPreStart extends AppCompatActivity {
     }
 
     public void createImageViews(){
-        imageViews = new ImageView[9];
+        workoutData.setCountWorkout(finalworkoutid);
+        imageViews = new ImageView[workoutData.getCountWorkout()];
         Log.e("finalworkoutID: ", finalworkoutid + "");
-        for(int i=0; i<8;i++){
+        for(int i=0; i<workoutData.getCountWorkout();i++){
             WorkoutData workoutData = new WorkoutData();
             workoutData.setFinalworkoutid(finalworkoutid);
             workoutData.setBreakTime(breakTime);
@@ -108,14 +109,6 @@ public class WorkoutPreStart extends AppCompatActivity {
             imageViews[i].setImageResource(map.get(i));
             Log.e("Picture: ", map.get(i) + "");
             linearLayout.addView(imageViews[i]);
-
-            /*
-            ImageView imageView = new ImageView(this);
-            imageView.setTag("i");
-            imageView.setLayoutParams(new android.view.ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200));
-            imageView.setImageResource(R.drawable.bizeps);
-            linearLayout2.addView(imageView);
-            */
 
             TextView textView = new TextView(this);
             textView.setTag("i");

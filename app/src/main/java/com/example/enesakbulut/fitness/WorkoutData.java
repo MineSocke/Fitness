@@ -27,6 +27,11 @@ public class WorkoutData {
     }
 
     public void setCountWorkout(int countWorkout) {
+        if (countWorkout == 1){
+            countWorkout = 9;
+        } else if (countWorkout == 2){
+            countWorkout = 5;
+        }
         this.countWorkout = countWorkout;
     }
 
