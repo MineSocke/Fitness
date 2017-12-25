@@ -476,8 +476,9 @@ public class WorkoutStart extends AppCompatActivity {
     }
 
     public void setBarData() {
-        tvName.setText(data.get(currentNumber).getName());
+
         if (data.size() > 0) {
+            tvName.setText(data.get(currentNumber).getName());
 
             ivBack.setOnClickListener(new View.OnClickListener() {
                 @Override
