@@ -11,8 +11,18 @@ public class WorkoutData {
     int breakTime;
     int workoutTime;
     int countWorkout;
+    int totalTime;
     ArrayList<Integer> map = new ArrayList();
     ArrayList<String> workouts = new ArrayList<>();
+
+    public void setTotalTime(int totalTime) {
+        if(totalTime == 1){
+            totalTime = 22;
+        }else if(totalTime == 2){
+            totalTime = 7;
+        }
+        this.totalTime = totalTime;
+    }
 
     public void setFinalworkoutid(int finalworkoutid) {
         this.finalworkoutid = finalworkoutid;
@@ -40,7 +50,7 @@ public class WorkoutData {
         if (countWorkout == 1){
             countWorkout = 9;
         } else if (countWorkout == 2){
-            countWorkout = 5;
+            countWorkout = 2;
         }
         this.countWorkout = countWorkout;
     }
@@ -69,8 +79,11 @@ public class WorkoutData {
             workouts.add("Crunches");
 
         }else if (i==2){
-            map.add(R.drawable.run);
-            map.add(R.drawable.run);
+            map.add(R.drawable.bizeps);
+            map.add(R.drawable.bizeps);
+
+            workouts.add("Liegestütze");
+            workouts.add("Bizeps-Curls");
         }
     }
 
@@ -88,6 +101,10 @@ public class WorkoutData {
 
     public int getCountWorkout() {
         return countWorkout;
+    }
+
+    public int getTotalTime(){
+        return totalTime;
     }
 
     public ArrayList<Integer> getMap() {

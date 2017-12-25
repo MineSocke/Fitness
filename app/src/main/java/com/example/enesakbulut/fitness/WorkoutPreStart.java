@@ -51,11 +51,14 @@ public class WorkoutPreStart extends AppCompatActivity {
         //Get intent data from prestart class
         finalworkoutid = getIntent().getIntExtra("workoutid", 0);
 
-        //enableImageview();
+
         pressStart();
         openMusicActivity();
         pressStart();
         createImageViews();
+
+        workoutData.setTotalTime(finalworkoutid);
+        tvTime.setText(String.valueOf(workoutData.getTotalTime()));
 
         Log.i("finalworkoutid: ", finalworkoutid +"");
         Log.i("breaktime: ", breakTime + "");
