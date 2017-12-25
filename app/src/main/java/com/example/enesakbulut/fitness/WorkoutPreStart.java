@@ -71,8 +71,14 @@ public class WorkoutPreStart extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), WorkoutStart.class);
                 intent.putExtra("workoutid", finalworkoutid);
                 intent.putExtra("breakTime", breakTime);
-                intent.putExtra("workoutTime", workoutTime);
                 intent.putExtra("countWorkout", countWorkout);
+
+                workoutData.setBreakTime(finalworkoutid);
+                intent.putExtra("breakTime", workoutData.getBreakTime());
+
+                workoutData.setWorkoutTime(finalworkoutid);
+                intent.putExtra("workoutTime", workoutData.getWorkoutTime());
+
                 startActivity(intent);
             }
         });

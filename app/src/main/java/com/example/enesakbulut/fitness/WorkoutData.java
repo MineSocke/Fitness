@@ -19,10 +19,20 @@ public class WorkoutData {
     }
 
     public void setBreakTime(int breakTime) {
+        if(breakTime == 1){
+            breakTime = 30;
+        }else if(breakTime == 2){
+            breakTime = 20;
+        }
         this.breakTime = breakTime;
     }
 
     public void setWorkoutTime(int workoutTime) {
+        if(workoutTime == 1){
+            workoutTime = 20;
+        }else if(workoutTime == 2){
+            workoutTime = 10;
+        }
         this.workoutTime = workoutTime;
     }
 
