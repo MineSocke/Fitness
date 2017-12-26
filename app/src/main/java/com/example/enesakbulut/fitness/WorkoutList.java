@@ -28,7 +28,6 @@ public class WorkoutList extends AppCompatActivity {
         ivBizeps = (ImageView) findViewById(R.id.ivBizeps);
         ivAbs = (ImageView) findViewById(R.id.ivAbs);
         workoutClick();
-        changeStatusBarColor();
 
         SharedPreferences settings = getSharedPreferences(WelcomeActivity.PREFS_SETUP, 0);
         boolean setupDone = settings.getBoolean("setupDone", false);
@@ -65,27 +64,6 @@ public class WorkoutList extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), WorkoutPreStart.class);
         intent.putExtra("workoutid", workoutid);
         startActivity(intent);
-    }
-
-
-
-
-
-
-    private void changeStatusBarColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-
-// clear FLAG_TRANSLUCENT_STATUS flag:
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
-// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-
-// finally change the color
-            window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), android.R.color.transparent));
-
-        }
     }
 
 

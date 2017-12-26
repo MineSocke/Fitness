@@ -120,7 +120,6 @@ public class WorkoutStart extends AppCompatActivity {
         //Launch Methods
         timer();
         changeImageTypeButtonPressed();
-        changeStatusBarColor();
         getArrayAndFillArrayList();
         setBarData();
 
@@ -407,7 +406,7 @@ public class WorkoutStart extends AppCompatActivity {
 
     }
 
-    private void timer3(){
+    private void timer3() {
         rest.start(); //Audio: "Rest!"
 
         changeImage();
@@ -420,7 +419,7 @@ public class WorkoutStart extends AppCompatActivity {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                if(seconds>0){
+                if (seconds > 0) {
                     seconds--;
                     progress++;
                     handler.postDelayed(this, 1000);
@@ -429,21 +428,21 @@ public class WorkoutStart extends AppCompatActivity {
 
                     if (seconds == 3) {
                         three.start();  //Audio: "Three"
-                    } else if(seconds == 2) {
+                    } else if (seconds == 2) {
                         two.start();    //Audio: "Two"
-                    } else if(seconds == 1) {
+                    } else if (seconds == 1) {
                         one.start();    //Audio: "One"
-                    } else if(seconds == staticSeconds/2) {
+                    } else if (seconds == staticSeconds / 2) {
                         halftime.start();
                     }
 
                     circularProgressBar.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            if (status == 0){
+                            if (status == 0) {
                                 onPause();
                                 status = 1;
-                            } else if (status == 1){
+                            } else if (status == 1) {
                                 onResume();
                                 status = 0;
                             }
@@ -454,33 +453,20 @@ public class WorkoutStart extends AppCompatActivity {
                     handler.removeCallbacks(this);
                     timer2();
                 }
-                if(doublePressed == 1) {
+                if (doublePressed == 1) {
                     handler.removeCallbacks(this);
                 }
             }
-            private void onPause(){
+
+            private void onPause() {
                 handler.removeCallbacks(this);
             }
 
-            private void onResume(){
+            private void onResume() {
                 run();
             }
         });
 
-    }
-    private void changeStatusBarColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-
-// clear FLAG_TRANSLUCENT_STATUS flag:
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
-// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-
-// finally change the color
-            window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), android.R.color.transparent));
-        }
     }
 
     public void getArrayAndFillArrayList(){
