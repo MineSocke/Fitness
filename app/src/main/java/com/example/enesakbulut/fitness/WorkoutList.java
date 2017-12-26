@@ -84,6 +84,7 @@ public class WorkoutList extends AppCompatActivity {
 
 // finally change the color
             window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), android.R.color.transparent));
+
         }
     }
 
