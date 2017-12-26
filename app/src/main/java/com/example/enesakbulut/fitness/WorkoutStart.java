@@ -556,8 +556,6 @@ public class WorkoutStart extends AppCompatActivity {
 
             } catch (IOException e) {
                 e.printStackTrace();
-                Toast toast = Toast.makeText(getApplicationContext(), "ERROR: ", Toast.LENGTH_LONG);
-                toast.show();
         }
     }
 }
