@@ -172,9 +172,13 @@ public class WorkoutStart extends AppCompatActivity {
                 }
             } else if (id == 2) {
                 if (imageType == 1) {
+                    ivWorkout.setVisibility(View.INVISIBLE);
+                    gifView.setVisibility(View.VISIBLE);
                     gifView.setImageResource(R.drawable.bizepsanimated);
                     imageType = 2;
                 } else {
+                    ivWorkout.setVisibility(View.VISIBLE);
+                    gifView.setVisibility(View.INVISIBLE);
                     ivWorkout.setImageResource(R.drawable.bizeps);
                     imageType = 1;
                 }
@@ -184,17 +188,25 @@ public class WorkoutStart extends AppCompatActivity {
         } else if (workoutid == 2) {
             if (id == 1) {
                 if (imageType == 1) {
+                    ivWorkout.setVisibility(View.INVISIBLE);
+                    gifView.setVisibility(View.VISIBLE);
                     ivWorkout.setImageResource(R.drawable.bizepsanimated);
                     imageType = 2;
                 } else {
+                    ivWorkout.setVisibility(View.VISIBLE);
+                    gifView.setVisibility(View.INVISIBLE);
                     ivWorkout.setImageResource(R.drawable.bizeps);
                     imageType = 1;
                 }
             } else if (id == 2) {
                 if (imageType == 1) {
+                    ivWorkout.setVisibility(View.INVISIBLE);
+                    gifView.setVisibility(View.VISIBLE);
                     ivWorkout.setImageResource(R.drawable.bizepsanimated);
                     imageType = 2;
                 } else {
+                    ivWorkout.setVisibility(View.VISIBLE);
+                    gifView.setVisibility(View.INVISIBLE);
                     ivWorkout.setImageResource(R.drawable.bizeps);
                     imageType = 1;
                 }
@@ -204,17 +216,25 @@ public class WorkoutStart extends AppCompatActivity {
         } else if (workoutid == 3) {
             if (id == 1) {
                 if (imageType == 1) {
+                    ivWorkout.setVisibility(View.INVISIBLE);
+                    gifView.setVisibility(View.VISIBLE);
                     ivWorkout.setImageResource(R.drawable.bizepsanimated);
                     imageType = 2;
                 } else if (imageType == 2) {
+                    ivWorkout.setVisibility(View.INVISIBLE);
+                    gifView.setVisibility(View.VISIBLE);
                     ivWorkout.setImageResource(R.drawable.bizeps);
                     imageType = 1;
                 }
             } else if (id == 2) {
                 if (imageType == 1) {
+                    ivWorkout.setVisibility(View.INVISIBLE);
+                    gifView.setVisibility(View.VISIBLE);
                     ivWorkout.setImageResource(R.drawable.bizepsanimated);
                     imageType = 2;
                 } else if (imageType == 2) {
+                    ivWorkout.setVisibility(View.INVISIBLE);
+                    gifView.setVisibility(View.VISIBLE);
                     ivWorkout.setImageResource(R.drawable.bizeps);
                     imageType = 1;
                 }
