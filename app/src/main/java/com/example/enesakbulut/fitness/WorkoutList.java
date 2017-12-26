@@ -24,7 +24,7 @@ public class WorkoutList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_workout);
+        setContentView(R.layout.activity_list_workouts);
         ivBizeps = (ImageView) findViewById(R.id.ivBizeps);
         ivAbs = (ImageView) findViewById(R.id.ivAbs);
         workoutClick();
