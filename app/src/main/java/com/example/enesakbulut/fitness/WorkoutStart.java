@@ -505,9 +505,6 @@ public class WorkoutStart extends AppCompatActivity {
                 public void onClick(View view) {
                     if (currentNumber >= 0) {
                         currentNumber--;
-
-                        Toast toast = Toast.makeText(getApplicationContext(), currentNumber + "", Toast.LENGTH_SHORT);
-                        toast.show();
                         tvName.setText(data.get(currentNumber).getName());
                         playMusic();
                     }
@@ -519,10 +516,7 @@ public class WorkoutStart extends AppCompatActivity {
                 public void onClick(View view) {
                     if (currentNumber < (data.size()) - 1) {
                         currentNumber++;
-                        Toast toast = Toast.makeText(getApplicationContext(), currentNumber + "", Toast.LENGTH_SHORT);
-                        toast.show();
-                        String setText = "" + data.get(currentNumber).getName();
-                        tvName.setText(setText);
+                        tvName.setText(data.get(currentNumber).getName());
                         playMusic();
                     }
                 }
