@@ -242,33 +242,11 @@ public class WorkoutStart extends AppCompatActivity {
     }
 
     public void changeImage(){
-
-        //EMULATOR CRASHED WARUM???????
         WorkoutData workoutData = new WorkoutData();
         workoutData.setMap(workoutid);
         ivWorkout.setImageResource(workoutData.getMap().get(id));
         id++;
 
-
-        /*
-
-
-        id++; //id gleich Reihenfolge also Bild 1 Bild 2 etc.
-
-        if (workoutid == 1) { //workoutid welches workout angeklickt wurde
-            if (id == 1) {
-                ivWorkout.setImageResource(R.drawable.bizeps);
-            } else if (id == 2) {
-                ivWorkout.setImageResource(R.drawable.bizeps);
-            }
-        } else if (workoutid == 2) {
-            if (id == 1) {
-                ivWorkout.setImageResource(R.drawable.bizeps);
-            } else if (id == 2) {
-                ivWorkout.setImageResource(R.drawable.bizeps);
-            }
-        }
-        */
     }
 
     public void changeSwapPictureLogo(){
@@ -294,6 +272,9 @@ public class WorkoutStart extends AppCompatActivity {
     }
 
     private void timer(){
+        WorkoutData workoutData = new WorkoutData();
+        workoutData.setMap(workoutid);
+        ivWorkout.setImageResource(workoutData.getMap().get(id));
         getReady.start();
 
         tvInfo.setText("Get Ready!");

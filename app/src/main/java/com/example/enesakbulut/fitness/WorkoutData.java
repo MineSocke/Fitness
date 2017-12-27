@@ -57,8 +57,8 @@ public class WorkoutData {
 
     public void setMap(int i) {
         if(i==1){
-            map.add(R.drawable.bizeps);
-            map.add(R.drawable.bizeps);
+            map.add(R.drawable.medal);
+            map.add(R.drawable.medal);
             map.add(R.drawable.bizeps);
             map.add(R.drawable.bizeps);
             map.add(R.drawable.bizeps);
@@ -79,8 +79,8 @@ public class WorkoutData {
             workouts.add("Crunches");
 
         }else if (i==2){
-            map.add(R.drawable.bizeps);
-            map.add(R.drawable.bizeps);
+            map.add(R.drawable.medal);
+            map.add(R.drawable.medal);
 
             workouts.add("Liegestütze");
             workouts.add("Bizeps-Curls");
