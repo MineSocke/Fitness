@@ -76,7 +76,6 @@ public class WorkoutStart extends AppCompatActivity {
     int currentNumber = 0;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,14 +118,15 @@ public class WorkoutStart extends AppCompatActivity {
 
         //Launch Methods
         timer();
-        changeImageTypeButtonPressed();
+        changeImageType();
         getArrayAndFillArrayList();
         setBarData();
 
     }
+
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
-            if(music.isPlaying()) {
+            if (music.isPlaying()) {
                 music.stop();
             }
             super.onBackPressed();
@@ -147,32 +147,35 @@ public class WorkoutStart extends AppCompatActivity {
         }, 1500);
     }
 
-    public void killActivity(){
+    public void killActivity() {
         finish();
     }
 
     public void changeImageType() {
+        ivSwapPicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                WorkoutData workoutData = new WorkoutData();
+                workoutData.setMap(workoutid);
 
-        WorkoutData workoutData = new WorkoutData();
-        workoutData.setMap(workoutid);
-
-        if(imageType == 1){
-            ivWorkout.setVisibility(View.VISIBLE);
-            gifView.setVisibility(View.INVISIBLE);
-            ivWorkout.setImageResource(workoutData.getMap().get(id));
-            imageType = 2;
-        } else {
-            ivWorkout.setVisibility(View.INVISIBLE);
-            gifView.setVisibility(View.VISIBLE);
-            gifView.setImageResource(workoutData.getMapGif().get(id));
-            imageType = 1;
-        }
-
-
-
+                if (imageType == 1) {
+                    ivWorkout.setVisibility(View.INVISIBLE);
+                    gifView.setVisibility(View.VISIBLE);
+                    gifView.setImageResource(workoutData.getMapGif().get(id));
+                    ivSwapPicture.setImageResource(R.drawable.swappicturetwo);
+                    imageType = 2;
+                } else {
+                    ivWorkout.setVisibility(View.VISIBLE);
+                    gifView.setVisibility(View.INVISIBLE);
+                    ivWorkout.setImageResource(workoutData.getMap().get(id));
+                    ivSwapPicture.setImageResource(R.drawable.swappicture);
+                    imageType = 1;
+                }
+            }
+        });
     }
 
-    public void changeImage(){
+    public void changeImage() {
         WorkoutData workoutData = new WorkoutData();
         workoutData.setMap(workoutid);
         ivWorkout.setImageResource(workoutData.getMap().get(id));
@@ -180,29 +183,7 @@ public class WorkoutStart extends AppCompatActivity {
 
     }
 
-    public void changeSwapPictureLogo(){
-        if (swapPictureLogoInt == 0) {
-            ivSwapPicture.setImageResource(R.drawable.swappicturetwo);
-            swapPictureLogoInt = 1;
-        }else {
-            ivSwapPicture.setImageResource(R.drawable.swappicture);
-            swapPictureLogoInt = 0;
-        }
-    }
-
-    public void changeImageTypeButtonPressed() {
-        ivSwapPicture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeImageType();
-                changeSwapPictureLogo();
-                Log.i("Swapbutton: ", "Gedrückt");
-            }
-        });
-
-    }
-
-    private void timer(){
+    private void timer() {
         WorkoutData workoutData = new WorkoutData();
         workoutData.setMap(workoutid);
         ivWorkout.setImageResource(workoutData.getMap().get(id));
@@ -213,34 +194,34 @@ public class WorkoutStart extends AppCompatActivity {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                if(seconds>0){
+                if (seconds > 0) {
                     seconds--;
                     progress++;
                     handler.postDelayed(this, 1000);
                     tvTimer.setText(seconds + "");
-                    circularProgressBar.setProgressWithAnimation(((int) progress * 100) / staticSeconds, 1000); //Hier +1000
+                    circularProgressBar.setProgressWithAnimation((progress * 100) / staticSeconds, 1000); //Hier +1000
 
                     if (seconds == 3) {
                         three.start();  //Audio: "Three"
-                    } else if(seconds == 2) {
+                    } else if (seconds == 2) {
                         two.start();    //Audio: "Two"
-                    } else if(seconds == 1) {
+                    } else if (seconds == 1) {
                         one.start();    //Audio: "One"
                     }
 
                     circularProgressBar.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            if (status == 0){
+                            if (status == 0) {
                                 onPause();
                                 status = 1;
-                            } else if (status == 1){
+                            } else if (status == 1) {
                                 onResume();
                                 status = 0;
                             }
                         }
                     });
-                    if(doublePressed == 1){
+                    if (doublePressed == 1) {
                         handler.removeCallbacks(this);
                     }
                 } else {
@@ -249,11 +230,12 @@ public class WorkoutStart extends AppCompatActivity {
                     timer2();
                 }
             }
-            private void onPause(){
+
+            private void onPause() {
                 handler.removeCallbacks(this);
             }
 
-            private void onResume(){
+            private void onResume() {
                 run();
             }
         });
@@ -261,11 +243,11 @@ public class WorkoutStart extends AppCompatActivity {
 
     }
 
-    private void timer2(){
+    private void timer2() {
         go.start(); //Audio: "Go!"
         seconds = getIntent().getIntExtra("workoutTime", 0);
         staticSeconds = seconds;
-        Log.i("seconds", staticSeconds+"");
+        Log.i("seconds", staticSeconds + "");
         tvInfo.setText("Workout!");
 
         progress = 0;
@@ -278,7 +260,7 @@ public class WorkoutStart extends AppCompatActivity {
                     progress++;
                     handler.postDelayed(this, 1000);
                     tvTimer.setText(seconds + "");
-                    circularProgressBar.setProgressWithAnimation(((int) progress * 100) / staticSeconds, 1000); //Hier +1000
+                    circularProgressBar.setProgressWithAnimation((progress * 100) / staticSeconds, 1000); //Hier +1000
 
                     if (seconds == 3) {
                         three.start();  //Audio: "Three"
@@ -318,11 +300,12 @@ public class WorkoutStart extends AppCompatActivity {
                     handler.removeCallbacks(this);
                 }
             }
-            private void onPause(){
+
+            private void onPause() {
                 handler.removeCallbacks(this);
             }
 
-            private void onResume(){
+            private void onResume() {
                 run();
             }
         });
@@ -347,7 +330,7 @@ public class WorkoutStart extends AppCompatActivity {
                     progress++;
                     handler.postDelayed(this, 1000);
                     tvTimer.setText(seconds + "");
-                    circularProgressBar.setProgressWithAnimation(((int) progress * 100) / staticSeconds, 1000); //Hier +1000
+                    circularProgressBar.setProgressWithAnimation((progress * 100) / staticSeconds, 1000); //Hier +1000
 
                     if (seconds == 3) {
                         three.start();  //Audio: "Three"
@@ -392,14 +375,15 @@ public class WorkoutStart extends AppCompatActivity {
 
     }
 
-    public void getArrayAndFillArrayList(){
-        SharedPreferences sharedArrayList = getSharedPreferences("sharedArrayList", 0 );
+    public void getArrayAndFillArrayList() {
+        SharedPreferences sharedArrayList = getSharedPreferences("sharedArrayList", 0);
         Gson gson = new Gson();
         String json = sharedArrayList.getString("jsonList", null);
-        Type type = new TypeToken<ArrayList<ListData>>(){}.getType();
+        Type type = new TypeToken<ArrayList<ListData>>() {
+        }.getType();
         data = gson.fromJson(json, type);
 
-        if(data==null){
+        if (data == null) {
             data = new ArrayList<>();
         }
     }
@@ -434,37 +418,37 @@ public class WorkoutStart extends AppCompatActivity {
             ivPlay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(music.isPlaying()){
+                    if (music.isPlaying()) {
                         music.pause();
-                    }else{
+                    } else {
                         playMusic();
                     }
                 }
 
             });
-        }else{
+        } else {
             tvName.setText("No Playlist");
         }
     }
 
-    public void playMusic(){
+    public void playMusic() {
         music.reset();
-            setVolumeControlStream(AudioManager.STREAM_MUSIC);
-            music = new MediaPlayer();
-            music.setAudioStreamType(AudioManager.STREAM_MUSIC);
-            try {
-                Uri uri = Uri.parse(data.get(currentNumber).getUri());
-                music.setDataSource(getApplicationContext(), uri);
-                music.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                    @Override
-                    public void onPrepared(MediaPlayer mediaPlayer) {
-                        music.start();
-                    }
-                });
-                music.prepareAsync();
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        music = new MediaPlayer();
+        music.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        try {
+            Uri uri = Uri.parse(data.get(currentNumber).getUri());
+            music.setDataSource(getApplicationContext(), uri);
+            music.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mediaPlayer) {
+                    music.start();
+                }
+            });
+            music.prepareAsync();
 
-            } catch (IOException e) {
-                e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
