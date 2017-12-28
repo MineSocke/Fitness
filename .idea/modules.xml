@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Fitness.iml" filepath="$PROJECT_DIR$/Fitness.iml" />
-      <module fileurl="file://C:\Users\Enes\Documents\Fitness\Fitness\Fitness.iml" filepath="C:\Users\Enes\Documents\Fitness\Fitness\Fitness.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

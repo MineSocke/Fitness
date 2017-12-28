@@ -152,6 +152,8 @@ public class WorkoutStart extends AppCompatActivity {
     }
 
     public void changeImageType() {
+
+        //FIX THIS MESS :)
         if (workoutid == 1) { //workoutid welches workout angeklickt wurde
             Log.i("workoutid:", "erfolgreich");
             if (id == 1) {
