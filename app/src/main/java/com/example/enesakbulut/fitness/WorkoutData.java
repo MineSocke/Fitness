@@ -13,7 +13,9 @@ public class WorkoutData {
     int countWorkout;
     int totalTime;
     ArrayList<Integer> map = new ArrayList();
+    ArrayList<Integer> mapGif = new ArrayList<>();
     ArrayList<String> workouts = new ArrayList<>();
+
 
     public void setTotalTime(int totalTime) {
         if(totalTime == 1){
@@ -67,6 +69,15 @@ public class WorkoutData {
             map.add(R.drawable.bizeps);
             map.add(R.drawable.bizeps);
 
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
 
             workouts.add("Liegestütze");
             workouts.add("Bizeps-Curls");
@@ -109,6 +120,10 @@ public class WorkoutData {
 
     public ArrayList<Integer> getMap() {
         return map;
+    }
+
+    public ArrayList<Integer> getMapGif() {
+        return mapGif;
     }
 
     public String getWorkouts(int i) {
