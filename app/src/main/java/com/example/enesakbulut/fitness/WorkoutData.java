@@ -93,6 +93,9 @@ public class WorkoutData {
             map.add(R.drawable.medal);
             map.add(R.drawable.medal);
 
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+
             workouts.add("Liegestütze");
             workouts.add("Bizeps-Curls");
         }
