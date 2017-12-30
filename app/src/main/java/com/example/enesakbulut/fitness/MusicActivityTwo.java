@@ -43,6 +43,7 @@ public class MusicActivityTwo extends AppCompatActivity {
     CustomAdapter customAdapter;
     ListData listData;
     SharedPreferences sharedPos;
+    int workoutid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +77,8 @@ public class MusicActivityTwo extends AppCompatActivity {
         }catch (NullPointerException e){
             Log.e("IOe", e.getMessage());
         }
+
+        workoutid = getIntent().getIntExtra("workoutid", 0);
 
 
         openExplorer();
@@ -255,6 +258,7 @@ public class MusicActivityTwo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), WorkoutPreStart.class);
+                intent.putExtra("workoutid", workoutid);
                 startActivity(intent);
                 finish();
             }
