@@ -81,6 +81,8 @@ public class WorkoutStart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_start);
 
+        getSupportActionBar().hide();
+
         handler = new Handler();
         listData = new ListData();
 

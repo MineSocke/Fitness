@@ -36,6 +36,7 @@ public class WorkoutList extends AppCompatActivity {
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ivBizeps = (ImageView) findViewById(R.id.ivBizeps);
         ivAbs = (ImageView) findViewById(R.id.ivAbs);
