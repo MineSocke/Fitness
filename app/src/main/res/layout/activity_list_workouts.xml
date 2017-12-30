@@ -7,15 +7,14 @@
     android:orientation="vertical"
     tools:context="com.example.enesakbulut.fitness.WorkoutList">
 
-    <TextView
-        android:id="@+id/textView9"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_height="50dp"
         android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:layout_weight="1"
-        android:text="Workouts"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:background="@color/bg_screen1"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/Theme.AppCompat.Light" />
 
     <ScrollView
         android:layout_width="match_parent"

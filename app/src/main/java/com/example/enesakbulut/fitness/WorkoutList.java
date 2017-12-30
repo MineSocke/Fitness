@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toolbar;
 
 import com.example.enesakbulut.fitness.Start.WelcomeActivity;
 
@@ -20,6 +21,7 @@ public class WorkoutList extends AppCompatActivity {
     public int workoutid;
     public ImageView ivBizeps;
     public ImageView ivAbs;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,12 @@ public class WorkoutList extends AppCompatActivity {
             startActivity(new Intent(WorkoutList.this, WelcomeActivity.class));
             finish();
         }
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
+
+    private void setSupportActionBar(Toolbar toolbar) {
     }
 
 
