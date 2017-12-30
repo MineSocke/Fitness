@@ -21,7 +21,6 @@ public class WorkoutList extends AppCompatActivity {
     public int workoutid;
     public ImageView ivBizeps;
     public ImageView ivAbs;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +38,9 @@ public class WorkoutList extends AppCompatActivity {
             finish();
         }
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
     }
 
-    private void setSupportActionBar(Toolbar toolbar) {
-    }
+
 
 
     private void workoutClick() {

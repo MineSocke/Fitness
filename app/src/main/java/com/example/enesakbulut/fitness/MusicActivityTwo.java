@@ -49,6 +49,8 @@ public class MusicActivityTwo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_two);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         loadArrayList();
 
         ivMusic = (ImageView) findViewById(R.id.ivMusic);

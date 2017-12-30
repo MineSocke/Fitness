@@ -40,6 +40,8 @@ public class WorkoutPreStart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_prestart);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         tvTime = (TextView) findViewById(R.id.tvTime);
         ivStart = (ImageView) findViewById(R.id.ivStart);
         ivMusic = (ImageView) findViewById(R.id.ivMusic);
