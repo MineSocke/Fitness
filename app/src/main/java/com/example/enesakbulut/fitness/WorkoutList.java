@@ -27,6 +27,7 @@ public class WorkoutList extends AppCompatActivity implements NavigationView.OnN
     public int workoutid;
     public ImageView ivBizeps;
     public ImageView ivAbs;
+
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     String classname = this.getClass().getSimpleName();

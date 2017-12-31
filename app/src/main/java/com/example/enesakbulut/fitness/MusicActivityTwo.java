@@ -5,8 +5,12 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.OpenableColumns;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.ListViewCompat;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import com.example.enesakbulut.fitness.Adapter.CustomAdapter;
 import com.google.gson.Gson;
@@ -29,9 +34,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class MusicActivityTwo extends AppCompatActivity {
+public class MusicActivityTwo extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private static int REQUEST_CODE = 40;
+
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    String classname = this.getClass().getSimpleName();
+    NavigationView navigationView;
+
 
     int position;
     String pos;
@@ -48,7 +59,21 @@ public class MusicActivityTwo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_two);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        workoutid = getIntent().getIntExtra("workoutid", 0);
+
+        if(workoutid == 0){
+            drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+            actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+            drawerLayout.addDrawerListener(actionBarDrawerToggle);
+            actionBarDrawerToggle.syncState();
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            navigationView = (NavigationView) findViewById(R.id.nav_view1);
+            navigationView.setNavigationItemSelectedListener(this);
+        }else {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
 
         loadArrayList();
 
@@ -78,9 +103,20 @@ public class MusicActivityTwo extends AppCompatActivity {
             Log.e("IOe", e.getMessage());
         }
 
-        workoutid = getIntent().getIntExtra("workoutid", 0);
+
 
         openExplorer();
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(workoutid == 0){
+            if(actionBarDrawerToggle.onOptionsItemSelected(item)) {
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void openExplorer() {
@@ -247,5 +283,56 @@ public class MusicActivityTwo extends AppCompatActivity {
             data = new ArrayList<>();
         }
 
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if(id== R.id.nav_workout){
+            Toast.makeText(this, "This is Workout", Toast.LENGTH_SHORT).show();
+            if(!classname.equals(WorkoutList.class.getSimpleName())){
+                drawerLayout.closeDrawers();
+                Intent intent = new Intent(this, WorkoutList.class);
+                startActivity(intent);
+            }else {
+                drawerLayout.closeDrawers();
+            }
+
+
+        }else if (id == R.id.nav_progress){
+            Toast.makeText(this, "This is progress", Toast.LENGTH_SHORT).show();
+            if(!classname.equals(WorkoutList.class.getSimpleName())){
+                drawerLayout.closeDrawers();
+                Intent intent = new Intent(this, MusicActivityTwo.class);
+                startActivity(intent);
+            }else {
+                drawerLayout.closeDrawers();
+            }
+
+
+        }else if(id == R.id.nav_music_playlist){
+            Toast.makeText(this, "This is Music-Playlist", Toast.LENGTH_SHORT).show();
+            if(!classname.equals(MusicActivityTwo.class.getSimpleName())) {
+                drawerLayout.closeDrawers();
+                Intent intent = new Intent(this, MusicActivityTwo.class);
+                startActivity(intent);
+            }else {
+                drawerLayout.closeDrawers();
+            }
+
+
+        }else if(id == R.id.nav_settings){
+            Toast.makeText(this, "This is Settings", Toast.LENGTH_SHORT).show();
+
+
+        }else if(id == R.id.nav_bug){
+            Toast.makeText(this, "This is FoundABug?", Toast.LENGTH_SHORT).show();
+
+
+        }else if(id == R.id.nav_rating){
+            Toast.makeText(this, "This is Rating", Toast.LENGTH_SHORT).show();
+
+        }
+        return false;
     }
 }
