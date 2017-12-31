@@ -29,6 +29,8 @@ public class WorkoutList extends AppCompatActivity implements NavigationView.OnN
     public ImageView ivAbs;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    String classname = this.getClass().getSimpleName();
+    NavigationView navigationView;
 
 
     @Override
@@ -41,7 +43,7 @@ public class WorkoutList extends AppCompatActivity implements NavigationView.OnN
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         ivBizeps = (ImageView) findViewById(R.id.ivBizeps);
@@ -102,16 +104,50 @@ public class WorkoutList extends AppCompatActivity implements NavigationView.OnN
         int id = item.getItemId();
         if(id== R.id.nav_workout){
             Toast.makeText(this, "This is Workout", Toast.LENGTH_SHORT).show();
+            if(!classname.equals(WorkoutList.class.getSimpleName())){
+                drawerLayout.closeDrawers();
+                Intent intent = new Intent(this, WorkoutList.class);
+                startActivity(intent);
+            }else {
+                drawerLayout.closeDrawers();
+            }
+
+
         }else if (id == R.id.nav_progress){
             Toast.makeText(this, "This is progress", Toast.LENGTH_SHORT).show();
+            if(!classname.equals(WorkoutList.class.getSimpleName())){
+                drawerLayout.closeDrawers();
+                Intent intent = new Intent(this, MusicActivityTwo.class);
+                startActivity(intent);
+            }else {
+                drawerLayout.closeDrawers();
+            }
+
+
         }else if(id == R.id.nav_music_playlist){
             Toast.makeText(this, "This is Music-Playlist", Toast.LENGTH_SHORT).show();
+            if(!classname.equals(MusicActivityTwo.class.getSimpleName())) {
+                drawerLayout.closeDrawers();
+                Intent intent = new Intent(this, MusicActivityTwo.class);
+                startActivity(intent);
+            }else {
+                drawerLayout.closeDrawers();
+            }
+
+
         }else if(id == R.id.nav_settings){
             Toast.makeText(this, "This is Settings", Toast.LENGTH_SHORT).show();
+
+
         }else if(id == R.id.nav_bug){
             Toast.makeText(this, "This is FoundABug?", Toast.LENGTH_SHORT).show();
+
+
         }else if(id == R.id.nav_rating){
             Toast.makeText(this, "This is Rating", Toast.LENGTH_SHORT).show();
+
+
+
         }
 
         return false;

@@ -38,7 +38,6 @@ public class MusicActivityTwo extends AppCompatActivity {
 
     ArrayList<ListData> data = new ArrayList<>();
     ImageView ivMusic;
-    ImageView ivFinish;
     ListView lvMusic;
     CustomAdapter customAdapter;
     ListData listData;
@@ -54,7 +53,6 @@ public class MusicActivityTwo extends AppCompatActivity {
         loadArrayList();
 
         ivMusic = (ImageView) findViewById(R.id.ivMusic);
-        ivFinish = (ImageView) findViewById(R.id.ivFinish);
         lvMusic = (ListView) findViewById(R.id.lvMusic);
 
         listData = new ListData();
@@ -82,11 +80,7 @@ public class MusicActivityTwo extends AppCompatActivity {
 
         workoutid = getIntent().getIntExtra("workoutid", 0);
 
-
         openExplorer();
-        finishMusicActivity();
-
-
     }
 
     public void openExplorer() {
@@ -253,17 +247,5 @@ public class MusicActivityTwo extends AppCompatActivity {
             data = new ArrayList<>();
         }
 
-    }
-
-    public void finishMusicActivity(){
-        ivFinish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), WorkoutPreStart.class);
-                intent.putExtra("workoutid", workoutid);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 }
