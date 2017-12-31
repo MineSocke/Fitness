@@ -51,7 +51,9 @@ public class WorkoutPreStart extends AppCompatActivity {
 
 
         //Get intent data from prestart class
-        finalworkoutid = getIntent().getIntExtra("workoutid", 0);
+            finalworkoutid = getIntent().getIntExtra("workoutid", 0);
+
+
 
 
         pressStart();
