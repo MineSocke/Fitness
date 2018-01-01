@@ -45,7 +45,7 @@ public class MusicActivityTwo extends AppCompatActivity implements NavigationVie
     String classname = this.getClass().getSimpleName();
     NavigationView navigationView;
 
-
+    boolean localadded = false;
     int position;
     String pos;
 
@@ -160,40 +160,60 @@ public class MusicActivityTwo extends AppCompatActivity implements NavigationVie
                 int localpos;
                 pos = sharedPos.getString("pos", "");
 
-                try{
+                try {
                     localpos = Integer.valueOf(pos);
-                }catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
                     localpos = 0;
                     Log.e("NumberFormatError: ", e.getMessage());
-                }catch (NullPointerException e){
+                } catch (NullPointerException e) {
                     localpos = 0;
                     Log.e("NullPointerException: ", e.getMessage());
                 }
 
-                localpos = localpos +1;
-                SharedPreferences.Editor editor = sharedPos.edit();
-                editor.putString("pos", localpos+"");
-                editor.apply();
-
 
                 listData.setName(displayName);
-                listData.setNumber(sharedPos.getString("pos", ""));
                 listData.setUri(uri.toString());
 
-                data.add(listData);
-                customAdapter.notifyDataSetChanged();
-                lvMusic.setAdapter(customAdapter);
+                if (localpos > 0) {
+                    localadded = false;
 
+                    for (int i = 0; i < localpos; i++) {
 
+                        if (data.get(i).getName().contains(listData.getName())) {
+                            Toast.makeText(this, "Already added", Toast.LENGTH_SHORT).show();
+                            localadded = true;
+
+                        }
+                    }
+                    if (!localadded) {
+                        Log.e("Localadded+IgetRan: ", localadded + "");
+                        SharedPreferences.Editor editor = sharedPos.edit();
+                        editor.putString("pos", (localpos + 1) + "");
+                        editor.apply();
+
+                        listData.setNumber(sharedPos.getString("pos", ""));
+
+                        data.add(listData);
+                        customAdapter.notifyDataSetChanged();
+                        lvMusic.setAdapter(customAdapter);
+                    }
+
+                } else {
+                    SharedPreferences.Editor editor = sharedPos.edit();
+                    editor.putString("pos", (localpos + 1) + "");
+                    editor.apply();
+
+                    listData.setNumber(sharedPos.getString("pos", ""));
+
+                    data.add(listData);
+                    customAdapter.notifyDataSetChanged();
+                    lvMusic.setAdapter(customAdapter);
+                }
             }
-
         } finally {
             cursor.close();
         }
-
-
     }
-
 
     public void createPopupMenu(View view){
         if(customAdapter.getCount()>0){
