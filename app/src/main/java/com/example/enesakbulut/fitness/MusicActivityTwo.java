@@ -1,5 +1,6 @@
 package com.example.enesakbulut.fitness;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -7,6 +8,7 @@ import android.net.Uri;
 import android.provider.OpenableColumns;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.ListViewCompat;
@@ -48,13 +50,14 @@ public class MusicActivityTwo extends AppCompatActivity implements NavigationVie
     String pos;
 
     ArrayList<ListData> data = new ArrayList<>();
-    ImageView ivMusic;
+    FloatingActionButton ivExplore;
     ListView lvMusic;
     CustomAdapter customAdapter;
     ListData listData;
     SharedPreferences sharedPos;
     int workoutid;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +80,7 @@ public class MusicActivityTwo extends AppCompatActivity implements NavigationVie
 
         loadArrayList();
 
-        ivMusic = (ImageView) findViewById(R.id.ivMusic);
+        ivExplore = (FloatingActionButton) findViewById(R.id.ivExplore);
         lvMusic = (ListView) findViewById(R.id.lvMusic);
 
         listData = new ListData();
@@ -120,7 +123,7 @@ public class MusicActivityTwo extends AppCompatActivity implements NavigationVie
     }
 
     public void openExplorer() {
-        ivMusic.setOnClickListener(new View.OnClickListener() {
+        ivExplore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
