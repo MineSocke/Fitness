@@ -1,6 +1,7 @@
 package com.example.enesakbulut.fitness;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,6 +35,8 @@ public class WorkoutPreStart extends AppCompatActivity {
     WorkoutData workoutData = new WorkoutData();
     ImageView[] imageViews;
 
+    SharedPreferences workoutidShared;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,23 +55,43 @@ public class WorkoutPreStart extends AppCompatActivity {
 
         //Get intent data from prestart class
             finalworkoutid = getIntent().getIntExtra("workoutid", 0);
+            if (finalworkoutid != 0){
+                workoutidShared = getSharedPreferences("workoutidShared", 0);
+                SharedPreferences.Editor editor = workoutidShared.edit();
+                editor.clear();
+                editor.putInt("workoutid", finalworkoutid);
+                editor.apply();
+            }
 
 
 
+
+        rebuildFromMusicActivity();
+
+        workoutData.setTotalTime(finalworkoutid);
+        tvTime.setText(String.valueOf(workoutData.getTotalTime()));
 
         pressStart();
         openMusicActivity();
         pressStart();
         createImageViews();
 
-        workoutData.setTotalTime(finalworkoutid);
-        tvTime.setText(String.valueOf(workoutData.getTotalTime()));
+
+
 
         Log.i("finalworkoutid: ", finalworkoutid +"");
         Log.i("breaktime: ", breakTime + "");
         Log.i("workoutTime: ", workoutTime + "");
         Log.i("countWorkout: ", countWorkout+"");
     }
+
+    public void rebuildFromMusicActivity(){
+        if (finalworkoutid == 0) {
+            workoutidShared = getSharedPreferences("workoutidShared", 0);
+            finalworkoutid = workoutidShared.getInt("workoutid", 0 );
+        }
+    }
+
 
     public void pressStart(){
         ivStart.setOnClickListener(new View.OnClickListener() {
