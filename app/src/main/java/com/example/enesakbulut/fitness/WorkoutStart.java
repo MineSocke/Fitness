@@ -80,6 +80,7 @@ public class WorkoutStart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_start);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         getSupportActionBar().hide();
 
@@ -123,6 +124,9 @@ public class WorkoutStart extends AppCompatActivity {
         changeImageType();
         getArrayAndFillArrayList();
         setBarData();
+
+
+
 
     }
 
@@ -431,6 +435,8 @@ public class WorkoutStart extends AppCompatActivity {
         } else {
             tvName.setText("No Playlist");
         }
+
+
     }
 
     public void playMusic() {
@@ -453,4 +459,6 @@ public class WorkoutStart extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+
 }
