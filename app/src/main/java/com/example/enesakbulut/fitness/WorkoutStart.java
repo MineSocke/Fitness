@@ -436,7 +436,6 @@ public class WorkoutStart extends AppCompatActivity {
             tvName.setText("No Playlist");
         }
 
-
     }
 
     public void playMusic() {
@@ -458,6 +457,17 @@ public class WorkoutStart extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        music.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                if (currentNumber < (data.size()) - 1) {
+                    currentNumber++;
+                    tvName.setText(data.get(currentNumber).getName());
+                    playMusic();
+                }
+            }
+        });
     }
 
 
