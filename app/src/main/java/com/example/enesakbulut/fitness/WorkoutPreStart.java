@@ -71,10 +71,10 @@ public class WorkoutPreStart extends AppCompatActivity {
         workoutData.setTotalTime(finalworkoutid);
         tvTime.setText(String.valueOf(workoutData.getTotalTime()));
 
-        pressStart();
+
         openMusicActivity();
-        pressStart();
         createImageViews();
+        pressStart();
 
 
 
@@ -101,7 +101,7 @@ public class WorkoutPreStart extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), WorkoutStart.class);
                 intent.putExtra("workoutid", finalworkoutid);
                 intent.putExtra("breakTime", breakTime);
-                intent.putExtra("countWorkout", countWorkout);
+                intent.putExtra("countWorkout", workoutData.getCountWorkout());
 
                 workoutData.setBreakTime(finalworkoutid);
                 intent.putExtra("breakTime", workoutData.getBreakTime());

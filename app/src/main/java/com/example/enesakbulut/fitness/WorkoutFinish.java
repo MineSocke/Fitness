@@ -22,6 +22,7 @@ public class WorkoutFinish extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_finish);
+        getSupportActionBar().hide();
 
         bDone = (Button) findViewById(R.id.bDone);
         bShare = (Button) findViewById(R.id.bShare);

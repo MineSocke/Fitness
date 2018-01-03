@@ -292,6 +292,8 @@ public class WorkoutStart extends AppCompatActivity {
                     });
                 } else {
                     //TIMER COMPLETE
+                    Log.e("id: ", id+ "");
+                    Log.e("countworkout: ", countWorkout + "");
                     handler.removeCallbacks(this);
                     if (id == countWorkout) {
                         Intent intent = new Intent(getApplicationContext(), WorkoutFinish.class);
