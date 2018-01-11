@@ -17,7 +17,7 @@
         <activity android:name=".WorkoutList" />
         <activity
             android:name=".WorkoutPreStart"
-            android:parentActivityName=".WorkoutList" />
+            android:parentActivityName=".WorkoutListTwo" />
         <activity android:name=".WorkoutStart" />
         <activity android:name=".Start.SplashActivity">
             <intent-filter>

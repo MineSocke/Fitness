@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -56,7 +57,8 @@ public class WorkoutListTwo extends AppCompatActivity implements NavigationView.
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        workoutClick();
+        setupList();
+        clickWorkout();
 
         SharedPreferences settings = getSharedPreferences(WelcomeActivity.PREFS_SETUP, 0);
         boolean setupDone = settings.getBoolean("setupDone", false);
@@ -77,8 +79,8 @@ public class WorkoutListTwo extends AppCompatActivity implements NavigationView.
     }
 
 
-    private void workoutClick() {
-        for (int i = 0; i<2; i++){
+    private void setupList() {
+        for (int i = 0; i<3; i++){
         WorkoutDataList workoutDataList = new WorkoutDataList();
         workoutDataList.setWorkoutListMap(i);
         workoutDataList.setProgress(i+1);
@@ -87,6 +89,17 @@ public class WorkoutListTwo extends AppCompatActivity implements NavigationView.
         customWorkoutAdapter.notifyDataSetChanged();
         lvWorkoutList.setAdapter(customWorkoutAdapter);
         }
+    }
+
+    private void clickWorkout(){
+        lvWorkoutList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                workoutid = i+1;
+                Log.e("WORKOUTIDXD: ", workoutid + "");
+                clickedButton();
+            }
+        });
     }
 
 

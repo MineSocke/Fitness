@@ -18,9 +18,9 @@ public class WorkoutDataList {
         if(i==0){
             workoutListMap.add(R.drawable.bizeps);
         }else if (i==1){
-            workoutListMap.add(R.drawable.medal);
+            workoutListMap.add(R.drawable.bizeps);
         }else if (i==2){
-            workoutListMap.add(R.drawable.alarmcheck);
+            workoutListMap.add(R.drawable.bizeps);
         }
     }
 
