@@ -404,7 +404,7 @@ public class WorkoutStart extends AppCompatActivity {
             ivBack.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (currentNumber >= 0) {
+                    if (currentNumber > 0) {
                         currentNumber--;
                         tvName.setText(data.get(currentNumber).getName());
                         playMusic();
