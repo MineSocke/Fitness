@@ -313,9 +313,9 @@ public class MusicActivityTwo extends AppCompatActivity implements NavigationVie
         int id = item.getItemId();
         if(id== R.id.nav_workout){
             Toast.makeText(this, "This is Workout", Toast.LENGTH_SHORT).show();
-            if(!classname.equals(WorkoutList.class.getSimpleName())){
+            if(!classname.equals(WorkoutListTwo.class.getSimpleName())){
                 drawerLayout.closeDrawers();
-                Intent intent = new Intent(this, WorkoutList.class);
+                Intent intent = new Intent(this, WorkoutListTwo.class);
                 startActivity(intent);
             }else {
                 drawerLayout.closeDrawers();
@@ -324,7 +324,7 @@ public class MusicActivityTwo extends AppCompatActivity implements NavigationVie
 
         }else if (id == R.id.nav_progress){
             Toast.makeText(this, "This is progress", Toast.LENGTH_SHORT).show();
-            if(!classname.equals(WorkoutList.class.getSimpleName())){
+            if(!classname.equals(WorkoutListTwo.class.getSimpleName())){
                 drawerLayout.closeDrawers();
                 Intent intent = new Intent(this, MusicActivityTwo.class);
                 startActivity(intent);

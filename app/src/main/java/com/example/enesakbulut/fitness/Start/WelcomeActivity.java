@@ -20,7 +20,7 @@ package com.example.enesakbulut.fitness.Start;
         import android.widget.TextView;
 
         import com.example.enesakbulut.fitness.R;
-        import com.example.enesakbulut.fitness.WorkoutList;
+        import com.example.enesakbulut.fitness.WorkoutListTwo;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -131,7 +131,7 @@ public class WelcomeActivity extends AppCompatActivity {
 // Commit the edits!
         editor.apply();
 
-        startActivity(new Intent(WelcomeActivity.this, WorkoutList.class));
+        startActivity(new Intent(WelcomeActivity.this, WorkoutListTwo.class));
         finish();
     }
 

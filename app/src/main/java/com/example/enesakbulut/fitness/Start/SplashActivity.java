@@ -1,12 +1,11 @@
 package com.example.enesakbulut.fitness.Start;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.enesakbulut.fitness.R;
-import com.example.enesakbulut.fitness.WorkoutList;
+import com.example.enesakbulut.fitness.WorkoutListTwo;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), WorkoutList.class));
+                startActivity(new Intent(getApplicationContext(), WorkoutListTwo.class));
                 finish();
             }
         }, 3000);

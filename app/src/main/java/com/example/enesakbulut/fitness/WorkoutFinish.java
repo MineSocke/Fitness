@@ -41,7 +41,7 @@ public class WorkoutFinish extends AppCompatActivity {
         bDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), WorkoutList.class);
+                Intent intent = new Intent(getApplicationContext(), WorkoutListTwo.class);
                 startActivity(intent);
             }
         });
