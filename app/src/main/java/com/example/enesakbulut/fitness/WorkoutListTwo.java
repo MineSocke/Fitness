@@ -2,44 +2,53 @@ package com.example.enesakbulut.fitness;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
+import com.example.enesakbulut.fitness.Adapter.CustomWorkoutAdapter;
 import com.example.enesakbulut.fitness.Start.WelcomeActivity;
 
+import java.util.ArrayList;
 
-public class WorkoutList extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+public class WorkoutListTwo extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     public static final String PREFS_SETUP = "PREFS";
     public int workoutid;
-    public ImageView ivBizeps;
-    public ImageView ivAbs;
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     String classname = this.getClass().getSimpleName();
     NavigationView navigationView;
 
+    WorkoutDataList workoutDataList;
+    ArrayList<WorkoutDataList> data = new ArrayList<>();
+    ListView lvWorkoutList;
+    CustomWorkoutAdapter customWorkoutAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_workouts);
+        setContentView(R.layout.activity_list_workouts_two);
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        workoutDataList = new WorkoutDataList();
+        lvWorkoutList = (ListView) findViewById(R.id.lvWorkoutList);
+        customWorkoutAdapter = new CustomWorkoutAdapter(getApplicationContext(), data);
+        lvWorkoutList.setAdapter(customWorkoutAdapter);
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layoutTwo);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
@@ -47,21 +56,17 @@ public class WorkoutList extends AppCompatActivity implements NavigationView.OnN
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ivBizeps = (ImageView) findViewById(R.id.ivBizeps);
-        ivAbs = (ImageView) findViewById(R.id.ivAbs);
         workoutClick();
 
         SharedPreferences settings = getSharedPreferences(WelcomeActivity.PREFS_SETUP, 0);
         boolean setupDone = settings.getBoolean("setupDone", false);
         // Checking for first time launch - before calling setContentView()
         if (!setupDone) {
-            startActivity(new Intent(WorkoutList.this, WelcomeActivity.class));
+            startActivity(new Intent(WorkoutListTwo.this, WelcomeActivity.class));
             finish();
         }
 
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -73,23 +78,15 @@ public class WorkoutList extends AppCompatActivity implements NavigationView.OnN
 
 
     private void workoutClick() {
-        //BIZEPS WORKOUT
-        ivBizeps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                workoutid = 1;
-                clickedButton();
-            }
-        });
+        for (int i = 0; i<2; i++){
+        WorkoutDataList workoutDataList = new WorkoutDataList();
+        workoutDataList.setWorkoutListMap(i);
+        workoutDataList.setProgress(i+1);
 
-        //ABS WORKOUT
-        ivAbs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                workoutid = 2;
-                clickedButton();
-            }
-        });
+        data.add(workoutDataList);
+        customWorkoutAdapter.notifyDataSetChanged();
+        lvWorkoutList.setAdapter(customWorkoutAdapter);
+        }
     }
 
 
@@ -105,9 +102,9 @@ public class WorkoutList extends AppCompatActivity implements NavigationView.OnN
         int id = item.getItemId();
         if(id== R.id.nav_workout){
             Toast.makeText(this, "This is Workout", Toast.LENGTH_SHORT).show();
-            if(!classname.equals(WorkoutList.class.getSimpleName())){
+            if(!classname.equals(WorkoutListTwo.class.getSimpleName())){
                 drawerLayout.closeDrawers();
-                Intent intent = new Intent(this, WorkoutList.class);
+                Intent intent = new Intent(this, WorkoutListTwo.class);
                 startActivity(intent);
             }else {
                 drawerLayout.closeDrawers();
@@ -118,7 +115,7 @@ public class WorkoutList extends AppCompatActivity implements NavigationView.OnN
             Toast.makeText(this, "This is progress", Toast.LENGTH_SHORT).show();
             if(!classname.equals(WorkoutListTwo.class.getSimpleName())){
                 drawerLayout.closeDrawers();
-                Intent intent = new Intent(this, WorkoutListTwo.class);
+                Intent intent = new Intent(this, MusicActivityTwo.class);
                 startActivity(intent);
             }else {
                 drawerLayout.closeDrawers();

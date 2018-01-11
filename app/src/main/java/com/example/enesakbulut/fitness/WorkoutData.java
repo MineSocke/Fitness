@@ -16,7 +16,6 @@ public class WorkoutData {
     ArrayList<Integer> mapGif = new ArrayList<>();
     ArrayList<String> workouts = new ArrayList<>();
 
-
     public void setTotalTime(int totalTime) {
         if(totalTime == 1){
             totalTime = 22;
