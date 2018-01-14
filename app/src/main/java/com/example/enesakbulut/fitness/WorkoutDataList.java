@@ -31,6 +31,12 @@ public class WorkoutDataList {
             workoutListMap.add(R.drawable.bizeps);
         }else if (i==7){
             workoutListMap.add(R.drawable.bizeps);
+        }else if (i==8){
+            workoutListMap.add(R.drawable.bizeps);
+        }else if (i==9){
+            workoutListMap.add(R.drawable.bizeps);
+        }else if (i==10){
+            workoutListMap.add(R.drawable.bizeps);
         }
     }
 

@@ -111,7 +111,7 @@ public class WorkoutListTwo extends AppCompatActivity implements NavigationView.
 
 
     private void setupList() {
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 10; i++) {
             WorkoutDataList workoutDataList = new WorkoutDataList();
             workoutDataList.setWorkoutListMap(i);
             workoutDataList.setProgress(i + 1);

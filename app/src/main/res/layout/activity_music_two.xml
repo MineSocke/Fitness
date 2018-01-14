@@ -10,10 +10,6 @@
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
             <LinearLayout
                 android:id="@+id/ivMusic"
                 android:layout_width="match_parent"
@@ -34,7 +30,6 @@
 
                 </ListView>
             </LinearLayout>
-        </ScrollView>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/ivExplore"
