@@ -22,10 +22,11 @@ import com.example.enesakbulut.fitness.Start.WelcomeActivity;
 import java.util.ArrayList;
 
 
-public class WorkoutListTwo extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class WorkoutListTwo extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final String PREFS_SETUP = "PREFS";
     public int workoutid;
+    int i;
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -68,11 +69,41 @@ public class WorkoutListTwo extends AppCompatActivity implements NavigationView.
             finish();
         }
 
+        drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                if (i == 1) {
+                    Intent intent = new Intent(getApplicationContext(), WorkoutListTwo.class);
+                    startActivity(intent);
+                } else if (i == 2) {
+                    Intent intent = new Intent(getApplicationContext(), WorkoutListTwo.class);
+                    startActivity(intent);
+                } else if (i == 3) {
+                    Intent intent = new Intent(getApplicationContext(), MusicActivityTwo.class);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(actionBarDrawerToggle.onOptionsItemSelected(item)){
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -80,22 +111,22 @@ public class WorkoutListTwo extends AppCompatActivity implements NavigationView.
 
 
     private void setupList() {
-        for (int i = 0; i<7; i++){
-        WorkoutDataList workoutDataList = new WorkoutDataList();
-        workoutDataList.setWorkoutListMap(i);
-        workoutDataList.setProgress(i+1);
+        for (int i = 0; i < 7; i++) {
+            WorkoutDataList workoutDataList = new WorkoutDataList();
+            workoutDataList.setWorkoutListMap(i);
+            workoutDataList.setProgress(i + 1);
 
-        data.add(workoutDataList);
-        customWorkoutAdapter.notifyDataSetChanged();
-        lvWorkoutList.setAdapter(customWorkoutAdapter);
+            data.add(workoutDataList);
+            customWorkoutAdapter.notifyDataSetChanged();
+            lvWorkoutList.setAdapter(customWorkoutAdapter);
         }
     }
 
-    private void clickWorkout(){
+    private void clickWorkout() {
         lvWorkoutList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                workoutid = i+1;
+                workoutid = i + 1;
                 Log.e("WORKOUTIDXD: ", workoutid + "");
                 clickedButton();
             }
@@ -103,7 +134,7 @@ public class WorkoutListTwo extends AppCompatActivity implements NavigationView.
     }
 
 
-    private void clickedButton(){
+    private void clickedButton() {
         Intent intent = new Intent(getApplicationContext(), WorkoutPreStart.class);
         intent.putExtra("workoutid", workoutid);
         startActivity(intent);
@@ -113,54 +144,43 @@ public class WorkoutListTwo extends AppCompatActivity implements NavigationView.
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if(id== R.id.nav_workout){
-            Toast.makeText(this, "This is Workout", Toast.LENGTH_SHORT).show();
-            if(!classname.equals(WorkoutListTwo.class.getSimpleName())){
+        if (id == R.id.nav_workout) {
+            if (!classname.equals(WorkoutListTwo.class.getSimpleName())) {
+                i = 1;
                 drawerLayout.closeDrawers();
-                Intent intent = new Intent(this, WorkoutListTwo.class);
-                startActivity(intent);
-            }else {
+            } else {
                 drawerLayout.closeDrawers();
             }
 
 
-        }else if (id == R.id.nav_progress){
-            Toast.makeText(this, "This is progress", Toast.LENGTH_SHORT).show();
-            if(!classname.equals(WorkoutListTwo.class.getSimpleName())){
+        } else if (id == R.id.nav_progress) {
+            if (!classname.equals(WorkoutListTwo.class.getSimpleName())) {
+                i = 2;
                 drawerLayout.closeDrawers();
-                Intent intent = new Intent(this, MusicActivityTwo.class);
-                startActivity(intent);
-            }else {
+            } else {
                 drawerLayout.closeDrawers();
             }
 
 
-        }else if(id == R.id.nav_music_playlist){
-            Toast.makeText(this, "This is Music-Playlist", Toast.LENGTH_SHORT).show();
-            if(!classname.equals(MusicActivityTwo.class.getSimpleName())) {
+        } else if (id == R.id.nav_music_playlist) {
+            if (!classname.equals(MusicActivityTwo.class.getSimpleName())) {
+                i = 3;
                 drawerLayout.closeDrawers();
-                Intent intent = new Intent(this, MusicActivityTwo.class);
-                startActivity(intent);
-            }else {
+            } else {
                 drawerLayout.closeDrawers();
             }
 
 
-        }else if(id == R.id.nav_settings){
-            Toast.makeText(this, "This is Settings", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_settings) {
 
 
-        }else if(id == R.id.nav_bug){
-            Toast.makeText(this, "This is FoundABug?", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_bug) {
 
 
-        }else if(id == R.id.nav_rating){
-            Toast.makeText(this, "This is Rating", Toast.LENGTH_SHORT).show();
-
+        } else if (id == R.id.nav_rating) {
 
 
         }
-
         return false;
     }
 }
