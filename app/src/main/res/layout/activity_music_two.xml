@@ -23,8 +23,8 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp">
-
                 </ListView>
+
             </LinearLayout>
 
         <android.support.design.widget.FloatingActionButton
@@ -35,7 +35,7 @@
             android:layout_marginBottom="15dp"
             android:layout_marginEnd="15dp"
             android:src="@drawable/ic_add_black_24dp"
-            android:tint="@color/white" />
+            style="@style/Button"/>
     </android.support.design.widget.CoordinatorLayout>
 
     <android.support.design.widget.NavigationView

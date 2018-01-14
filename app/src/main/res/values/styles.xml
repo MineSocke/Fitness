@@ -6,6 +6,10 @@
         <item name="colorPrimaryDark">#d72b3d</item>
         <item name="colorAccent">#ffffff</item>
     </style>
+    
+    <style name="Button" parent="Base.TextAppearance.AppCompat.Button">
+        <item name="backgroundTint">#d72b3d</item>
+    </style>
 
 
 
