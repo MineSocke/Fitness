@@ -1,8 +1,12 @@
 package com.example.enesakbulut.fitness.Start;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.enesakbulut.fitness.R;
 import com.example.enesakbulut.fitness.WorkoutListTwo;
@@ -25,5 +29,20 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         }, 3000);
+
+        changeStatusBarColor();
     }
+
+
+    /**
+     * Making notification bar transparent
+     */
+    private void changeStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+        }
+    }
+
 }
