@@ -5,6 +5,7 @@
         <item name="colorPrimary">#d72b3d</item>
         <item name="colorPrimaryDark">#d72b3d</item>
         <item name="colorAccent">#ffffff</item>
+        <item name="android:windowDisablePreview">true</item>
     </style>
     
     <style name="Button" parent="Base.TextAppearance.AppCompat.Button">
