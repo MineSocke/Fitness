@@ -104,7 +104,6 @@ public class WorkoutPreStartTwo extends AppCompatActivity {
 
 
         openMusicActivity();
-        createImageViews();
         pressStart();
 
 
@@ -157,34 +156,5 @@ public class WorkoutPreStartTwo extends AppCompatActivity {
             });
     }
 
-    public void createImageViews(){
-        workoutData.setCountWorkout(finalworkoutid);
-        imageViews = new ImageView[workoutData.getCountWorkout()];
-        Log.e("finalworkoutID: ", finalworkoutid + "");
-        for(int i=0; i<workoutData.getCountWorkout();i++){
-            WorkoutData workoutData = new WorkoutData();
-            workoutData.setFinalworkoutid(finalworkoutid);
-            workoutData.setBreakTime(breakTime);
-            workoutData.setWorkoutTime(workoutTime);
-            workoutData.setCountWorkout(countWorkout);
-            workoutData.setMap(finalworkoutid);
 
-            imageViews[i] = new ImageView(this);
-            imageViews[i].setTag("i");
-            imageViews[i].setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,200));
-
-            map = workoutData.getMap();
-            imageViews[i].setImageResource(map.get(i));
-            Log.e("Picture: ", map.get(i) + "");
-            linearLayout.addView(imageViews[i]);
-
-            TextView textView = new TextView(this);
-            textView.setTag("i");
-            textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200));
-            textView.setTextSize(19);
-            textView.setText(workoutData.getWorkouts(i));
-            linearLayout2.addView(textView);
-
-        }
-    }
 }

@@ -128,10 +128,12 @@ public class WorkoutListTwo extends AppCompatActivity implements NavigationView.
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 workoutid = i + 1;
                 Log.e("WORKOUTIDXD: ", workoutid + "");
-                Bundle bundle = new Bundle();
-                bundle.putString("workoutid", String.valueOf(workoutid));
-                Tab1 tab1 = new Tab1();
-                tab1.setArguments(bundle);
+                WorkoutData workoutData = new WorkoutData();
+                SharedPreferences sharedPreferences = getSharedPreferences("workoutid", 0);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.putInt("workoutid", workoutid);
+                editor.apply();
                 clickedButton();
             }
         });

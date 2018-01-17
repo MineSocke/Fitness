@@ -20,10 +20,7 @@ import java.util.ArrayList;
 
 
 public class Tab1 extends Fragment {
-    String finalworkoutid;
-    String breakTime;
-    String workoutTime;
-    String countWorkout;
+    int finalworkoutid;
     ArrayList<Integer> map = new ArrayList<>();
     ArrayList<String> workouts = new ArrayList<>();
 
@@ -32,29 +29,30 @@ public class Tab1 extends Fragment {
 
     WorkoutData workoutData = new WorkoutData();
     ImageView[] imageViews;
-    Bundle bundle = this.getArguments();
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        finalworkoutid = bundle.getString("workoutid");
+        linearLayout = (LinearLayout) this.getActivity().findViewById(R.id.linearLayout);
+        linearLayout2 = (LinearLayout) this.getActivity().findViewById(R.id.linearLayout2);
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("workoutid", 0);
+        finalworkoutid = sharedPreferences.getInt("workoutid", 0 );
+        Log.e("WORKOUTID: ", finalworkoutid + "");
+
         createImageViews();
         return inflater.inflate(R.layout.fragment_tab1, container, false);
     }
 
     public void createImageViews(){
-        workoutData.setCountWorkout(Integer.valueOf(finalworkoutid));
+        workoutData.setCountWorkout(finalworkoutid);
         imageViews = new ImageView[workoutData.getCountWorkout()];
         Log.e("finalworkoutID: ", finalworkoutid + "");
         for(int i=0; i<workoutData.getCountWorkout();i++){
             WorkoutData workoutData = new WorkoutData();
-            workoutData.setFinalworkoutid(Integer.valueOf(finalworkoutid));
-            workoutData.setBreakTime(Integer.valueOf(breakTime));
-            workoutData.setWorkoutTime(Integer.valueOf(workoutTime));
-            workoutData.setCountWorkout(Integer.valueOf(countWorkout));
-            workoutData.setMap(Integer.valueOf(finalworkoutid));
+            workoutData.setFinalworkoutid(finalworkoutid);
+            workoutData.setMap(finalworkoutid);
 
-            imageViews[i] = new ImageView(getActivity());
+            imageViews[i] = new ImageView(this.getActivity());
             imageViews[i].setTag("i");
             imageViews[i].setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,200));
 
