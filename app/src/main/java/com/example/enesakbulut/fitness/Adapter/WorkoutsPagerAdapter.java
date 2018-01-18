@@ -2,6 +2,7 @@ package com.example.enesakbulut.fitness.Adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 
@@ -12,12 +13,11 @@ import com.example.enesakbulut.fitness.Tab2;
  * Created by Enes on 17.01.2018.
  */
 
-public class WorkoutsPagerAdapter extends FragmentStatePagerAdapter{
-    int countTabs;
+public class WorkoutsPagerAdapter extends FragmentPagerAdapter {
 
-    public WorkoutsPagerAdapter(FragmentManager fragmentManager, int mCountTabs){
+
+    public WorkoutsPagerAdapter(FragmentManager fragmentManager){
         super(fragmentManager);
-        this.countTabs = mCountTabs;
     }
 
 
@@ -26,11 +26,9 @@ public class WorkoutsPagerAdapter extends FragmentStatePagerAdapter{
 
         switch (position){
             case 0:
-                Tab1 tab1 = new Tab1();
-                return tab1;
+                return new Tab1();
             case 1:
-                Tab2 tab2 = new Tab2();
-                return tab2;
+                return new Tab2();
             default:
                 return null;
         }
@@ -38,8 +36,18 @@ public class WorkoutsPagerAdapter extends FragmentStatePagerAdapter{
 
     @Override
     public int getCount() {
-        return countTabs;
+        return 2;
     }
 
-
+    @Override
+    public CharSequence getPageTitle(int position) {
+        switch (position) {
+            case 0:
+                return "Workouts";
+            case 1:
+                return "Progress";
+            default:
+                return null;
+        }
+    }
 }

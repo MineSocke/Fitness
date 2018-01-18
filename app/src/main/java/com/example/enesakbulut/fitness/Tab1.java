@@ -33,14 +33,15 @@ public class Tab1 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        linearLayout = (LinearLayout) this.getActivity().findViewById(R.id.linearLayout);
-        linearLayout2 = (LinearLayout) this.getActivity().findViewById(R.id.linearLayout2);
+        View view = inflater.inflate(R.layout.fragment_tab1, container, false);
+        linearLayout = (LinearLayout) view.findViewById(R.id.linearLayout);
+        linearLayout2 = (LinearLayout) view.findViewById(R.id.linearLayout2);
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("workoutid", 0);
         finalworkoutid = sharedPreferences.getInt("workoutid", 0 );
         Log.e("WORKOUTID: ", finalworkoutid + "");
 
         createImageViews();
-        return inflater.inflate(R.layout.fragment_tab1, container, false);
+        return view;
     }
 
     public void createImageViews(){

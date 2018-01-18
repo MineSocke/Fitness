@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -37,8 +38,6 @@ public class WorkoutPreStartTwo extends AppCompatActivity {
     ImageView[] imageViews;
 
     SharedPreferences workoutidShared;
-    WorkoutsPagerAdapter workoutsPagerAdapter;
-    ViewPager viewPager;
 
 
     @Override
@@ -48,32 +47,13 @@ public class WorkoutPreStartTwo extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        PagerAdapter pagerAdapter = new WorkoutsPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
+
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Excercises"));
-        tabLayout.addTab(tabLayout.newTab().setText("Progress"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setupWithViewPager(viewPager);
 
-        workoutsPagerAdapter = new WorkoutsPagerAdapter(
-                getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager = (ViewPager) findViewById(R.id.pager);
-        viewPager.setAdapter(workoutsPagerAdapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
 
 
         tvTime = (TextView) findViewById(R.id.tvTime);
