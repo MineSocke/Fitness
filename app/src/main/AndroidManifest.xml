@@ -14,9 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".WorkoutPreStart"
-            android:parentActivityName=".WorkoutListTwo" />
         <activity android:name=".WorkoutStart" />
         <activity android:name=".Start.SplashActivity">
             <intent-filter>
@@ -27,11 +24,10 @@
         </activity>
         <activity android:name=".WorkoutFinish" />
         <activity android:name=".Start.WelcomeActivity" />
-        <activity
-            android:name=".MusicActivityTwo"
-            android:parentActivityName=".WorkoutPreStart"></activity>
         <activity android:name=".WorkoutListTwo" />
-        <activity android:name=".WorkoutPreStartTwo" />
+        <activity
+            android:name=".WorkoutPreStartTwo"
+            android:parentActivityName=".WorkoutListTwo"/>
     </application>
 
 </manifest>
