@@ -28,7 +28,9 @@
         <activity
             android:name=".WorkoutPreStartTwo"
             android:parentActivityName=".WorkoutListTwo"/>
-        <activity android:name=".MusicActivityTwo" />
+        <activity
+            android:name=".MusicActivityTwo"
+            android:parentActivityName=".WorkoutListTwo"/>
     </application>
 
 
