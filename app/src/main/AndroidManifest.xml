@@ -30,7 +30,7 @@
             android:parentActivityName=".WorkoutListTwo"/>
         <activity
             android:name=".MusicActivityTwo"
-            android:parentActivityName=".WorkoutListTwo"/>
+            android:parentActivityName=".WorkoutPreStartTwo"/>
     </application>
 
 
