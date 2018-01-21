@@ -54,7 +54,7 @@ public class Tab1 extends Fragment {
             workoutData.setMap(finalworkoutid);
 
             imageViews[i] = new ImageView(this.getActivity());
-            imageViews[i].setTag("i");
+            imageViews[i].setTag(i); //("i")
             imageViews[i].setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,200));
 
             map = workoutData.getMap();
