@@ -37,7 +37,7 @@ public class Tab2 extends Fragment {
             imageViews[i] = new ImageView(this.getActivity());
             imageViews[i].setTag(i);
             imageViews[i].setLayoutParams(new ViewGroup.LayoutParams(100, 100));
-            imageViews[i].setImageResource(R.drawable.swappicturetwo);
+            imageViews[i].setImageResource(R.drawable.blackcircle);
             if(i<5){
                 linearLayout1.addView(imageViews[i]);
             }else if(i<10){
