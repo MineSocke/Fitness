@@ -2,31 +2,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="100dp">
+    android:orientation="vertical">
 
 
     <LinearLayout
         android:id="@+id/linearLayoutTab1"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        android:divider="@drawable/empty_square">
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayoutTab2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        android:divider="@drawable/empty_square"
+        android:layout_marginTop="20dp">
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayoutTab3"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        android:divider="@drawable/empty_square"
+        android:layout_marginTop="20dp">
 
     </LinearLayout>
 </LinearLayout>
