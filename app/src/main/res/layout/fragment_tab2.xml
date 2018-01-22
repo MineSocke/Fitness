@@ -13,7 +13,7 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:showDividers="middle"
-        android:divider="@drawable/empty_square">
+        android:divider="@drawable/ic_linear_scale_black_24dp">
 
     </LinearLayout>
 
