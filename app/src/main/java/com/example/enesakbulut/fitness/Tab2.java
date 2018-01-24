@@ -9,14 +9,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 public class Tab2 extends Fragment {
 
+    ImageView imageView;
+    TextView textView;
+
     ImageView[] imageViews;
+    TextView[] textViews;
     LinearLayout linearLayout1;
     LinearLayout linearLayout2;
     LinearLayout linearLayout3;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,23 +35,78 @@ public class Tab2 extends Fragment {
         linearLayout2 = (LinearLayout) view.findViewById(R.id.linearLayoutTab2);
         linearLayout3 = (LinearLayout) view.findViewById(R.id.linearLayoutTab3);
 
+
+
         initializeProgressDots();
         return view;
     }
 
     public void initializeProgressDots(){
         imageViews = new ImageView[15];
+        textViews = new TextView[15];
         for (int i = 0; i<15; i++){
             imageViews[i] = new ImageView(this.getActivity());
             imageViews[i].setTag(i);
             imageViews[i].setLayoutParams(new ViewGroup.LayoutParams(100, 100));
             imageViews[i].setImageResource(R.drawable.blackcircle);
+
+            textViews[i] = new TextView(this.getActivity());
+            textViews[i].setTag(i);
+            textViews[i].setLayoutParams(new ViewGroup.LayoutParams(100, 100));
+            textViews[i].setText(String.valueOf(i+1));
+
+
+
             if(i<5){
-                linearLayout1.addView(imageViews[i]);
+                View view = LayoutInflater.from(this.getActivity()).inflate(R.layout.progress_buttons, linearLayout1, false);
+
+                imageView = (ImageView) view.findViewById(R.id.imageViewRound);
+                textView = (TextView) view.findViewById(R.id.textViewRound);
+
+                imageView.setImageResource(R.drawable.blackcircle);
+
+                textView.setTextSize(25);
+                textView.setText(String.valueOf(i+1));
+
+
+                linearLayout1.addView(view);
+                //linearLayout1.addView(imageViews[i]);
+
+
             }else if(i<10){
-                linearLayout2.addView(imageViews[i]);
+
+                View view = LayoutInflater.from(this.getActivity()).inflate(R.layout.progress_buttons, linearLayout2, false);
+
+                imageView = (ImageView) view.findViewById(R.id.imageViewRound);
+                textView = (TextView) view.findViewById(R.id.textViewRound);
+
+
+                imageView.setImageResource(R.drawable.blackcircle);
+
+                textView.setTextSize(25);
+                textView.setText(String.valueOf(i+1));
+
+
+                linearLayout2.addView(view);
+                //linearLayout2.addView(imageViews[i]);
+
+
             }else if(i<15){
-                linearLayout3.addView(imageViews[i]);
+
+                View view = LayoutInflater.from(this.getActivity()).inflate(R.layout.progress_buttons, linearLayout3, false);
+
+                imageView = (ImageView) view.findViewById(R.id.imageViewRound);
+                textView = (TextView) view.findViewById(R.id.textViewRound);
+
+                imageView.setImageResource(R.drawable.blackcircle);
+
+                textView.setTextSize(25);
+                textView.setText(String.valueOf(i+1));
+
+
+                linearLayout3.addView(view);
+
+                //linearLayout3.addView(imageViews[i]);
             }
         }
     }
