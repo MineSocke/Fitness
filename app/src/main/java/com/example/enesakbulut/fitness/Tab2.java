@@ -65,7 +65,7 @@ public class Tab2 extends Fragment {
 
                 imageView.setImageResource(R.drawable.blackcircle);
 
-                textView.setTextSize(25);
+                textView.setTextSize(22);
                 textView.setText(String.valueOf(i+1));
 
 
@@ -83,7 +83,7 @@ public class Tab2 extends Fragment {
 
                 imageView.setImageResource(R.drawable.blackcircle);
 
-                textView.setTextSize(25);
+                textView.setTextSize(22);
                 textView.setText(String.valueOf(i+1));
 
 
@@ -100,7 +100,7 @@ public class Tab2 extends Fragment {
 
                 imageView.setImageResource(R.drawable.blackcircle);
 
-                textView.setTextSize(25);
+                textView.setTextSize(22);
                 textView.setText(String.valueOf(i+1));
 
 
