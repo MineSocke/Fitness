@@ -1,5 +1,6 @@
 package com.example.enesakbulut.fitness;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
@@ -18,6 +19,7 @@ public class Tab2 extends Fragment {
 
     ImageView imageView;
     TextView textView;
+    int workoutid;
 
     ImageView[] imageViews;
     TextView[] textViews;
@@ -35,6 +37,9 @@ public class Tab2 extends Fragment {
         linearLayout2 = (LinearLayout) view.findViewById(R.id.linearLayoutTab2);
         linearLayout3 = (LinearLayout) view.findViewById(R.id.linearLayoutTab3);
 
+
+        SharedPreferences workoutidShared = this.getActivity().getSharedPreferences("workoutid", 0);
+        workoutid = workoutidShared.getInt("workoutid", 0);
 
 
         initializeProgressDots();
