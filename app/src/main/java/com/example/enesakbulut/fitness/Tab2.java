@@ -64,6 +64,7 @@ public class Tab2 extends Fragment {
                 textView = (TextView) view.findViewById(R.id.textViewRound);
 
                 imageView.setImageResource(R.drawable.blackcircle);
+                imageView.setAlpha(0.5f);
 
                 textView.setTextSize(22);
                 textView.setText(String.valueOf(i+1));

@@ -37,4 +37,7 @@
         <item>@color/dot_dark_screen2</item>
         <item>@color/dot_dark_screen3</item>
     </array>
+
+    <drawable name="transperent_color">#00000000</drawable>
+
 </resources>

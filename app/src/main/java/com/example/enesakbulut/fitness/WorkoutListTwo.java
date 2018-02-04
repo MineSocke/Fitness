@@ -99,6 +99,12 @@ public class WorkoutListTwo extends AppCompatActivity implements NavigationView.
 
             }
         });
+
+        lvWorkoutList.setDivider(this.getResources().getDrawable(R.drawable.transperent_color));
+        lvWorkoutList.setDividerHeight(20);
+        lvWorkoutList.setPadding(10,0,10,0);
+        View headerView = getLayoutInflater().inflate(R.layout.listview_header, lvWorkoutList, false);
+        lvWorkoutList.addHeaderView(headerView);
     }
 
     @Override
