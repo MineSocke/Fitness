@@ -41,6 +41,7 @@ public class Tab1 extends Fragment {
         Log.e("WORKOUTID: ", finalworkoutid + "");
 
         createImageViews();
+
         return view;
     }
 

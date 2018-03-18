@@ -20,12 +20,14 @@ public class Tab2 extends Fragment {
     ImageView imageView;
     TextView textView;
     int workoutid;
+    int progress;
 
     ImageView[] imageViews;
     TextView[] textViews;
     LinearLayout linearLayout1;
     LinearLayout linearLayout2;
     LinearLayout linearLayout3;
+    WorkoutData workoutData = new WorkoutData();
 
 
     @Override
@@ -41,6 +43,7 @@ public class Tab2 extends Fragment {
         SharedPreferences workoutidShared = this.getActivity().getSharedPreferences("workoutid", 0);
         workoutid = workoutidShared.getInt("workoutid", 0);
 
+        workoutData.getProgressList(workoutid);
 
         initializeProgressDots();
         return view;
