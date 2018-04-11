@@ -77,7 +77,9 @@ public class Tab2 extends Fragment {
                 textView = (TextView) view.findViewById(R.id.textViewRound);
 
                 imageView.setImageResource(R.drawable.blackcircle);
-                imageView.setAlpha(0.5f);
+                if (i<= progress && progress>0) {
+                    imageView.setAlpha(0.5f);
+                }
 
                 textView.setTextSize(22);
                 textView.setText(String.valueOf(i+1));
@@ -97,6 +99,10 @@ public class Tab2 extends Fragment {
 
                 imageView.setImageResource(R.drawable.blackcircle);
 
+                if (i<= progress) {
+                    imageView.setAlpha(0.5f);
+                }
+
                 textView.setTextSize(22);
                 textView.setText(String.valueOf(i+1));
 
@@ -113,6 +119,10 @@ public class Tab2 extends Fragment {
                 textView = (TextView) view.findViewById(R.id.textViewRound);
 
                 imageView.setImageResource(R.drawable.blackcircle);
+
+                if (i<= progress) {
+                    imageView.setAlpha(0.5f);
+                }
 
                 textView.setTextSize(22);
                 textView.setText(String.valueOf(i+1));

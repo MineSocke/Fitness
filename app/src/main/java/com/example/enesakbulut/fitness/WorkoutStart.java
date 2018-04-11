@@ -298,6 +298,7 @@ public class WorkoutStart extends AppCompatActivity {
                     if (id == countWorkout) {
                         Intent intent = new Intent(getApplicationContext(), WorkoutFinish.class);
                         intent.putExtra("countWorkout", countWorkout);
+                        intent.putExtra("workoutid", workoutid);
                         startActivity(intent);
                         finish();
                     } else {

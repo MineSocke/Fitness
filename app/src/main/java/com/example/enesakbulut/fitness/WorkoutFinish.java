@@ -16,7 +16,9 @@ public class WorkoutFinish extends AppCompatActivity {
     Button bDone;
     Button bShare;
     TextView tvCounter;
+    WorkoutData workoutData = new WorkoutData();
     private int workoutCounter;
+    int workoutid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,9 @@ public class WorkoutFinish extends AppCompatActivity {
 
         workoutCounter = getIntent().getIntExtra("countWorkout", 0);
         tvCounter.setText(getResources().getString(R.string.workout_count) + workoutCounter);
+        workoutid = getIntent().getIntExtra("workoutid", 0);
 
+        saveData();
         bSharePressed();
         bDonePressed();
     }
@@ -62,5 +66,10 @@ public class WorkoutFinish extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void saveData(){
+        int progress = workoutData.getProgressList(workoutid);
+        workoutData.setProgressList(workoutid, progress+1);
     }
 }

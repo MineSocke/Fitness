@@ -104,12 +104,36 @@ public class WorkoutData {
         }else if (i==2){
             map.add(R.drawable.medal);
             map.add(R.drawable.medal);
+            map.add(R.drawable.medal);
+            map.add(R.drawable.medal);
+            map.add(R.drawable.medal);
+            map.add(R.drawable.medal);
+            map.add(R.drawable.medal);
+            map.add(R.drawable.medal);
+            map.add(R.drawable.medal);
+            map.add(R.drawable.medal);
 
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
+            mapGif.add(R.drawable.bizepsanimated);
             mapGif.add(R.drawable.bizepsanimated);
             mapGif.add(R.drawable.bizepsanimated);
 
             workouts.add("Liegestütze");
             workouts.add("Bizeps-Curls");
+            workouts.add("Trizeps-Dips");
+            workouts.add("Crunches");
+            workouts.add("Liegestütze");
+            workouts.add("Bizeps-Curls");
+            workouts.add("Trizeps-Dips");
+            workouts.add("Crunches");
+            workouts.add("Crunches");
+            workouts.add("Crunches");
         }
     }
 
