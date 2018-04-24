@@ -65,14 +65,14 @@ public class WorkoutPreStartTwo extends AppCompatActivity {
 
 
         //Get intent data from prestart class
-            finalworkoutid = getIntent().getIntExtra("workoutid", 0);
-            if (finalworkoutid != 0){
-                workoutidShared = getSharedPreferences("workoutidShared", 0);
-                SharedPreferences.Editor editor = workoutidShared.edit();
-                editor.clear();
-                editor.putInt("workoutid", finalworkoutid);
-                editor.apply();
-            }
+        finalworkoutid = getIntent().getIntExtra("workoutid", 0);
+        if (finalworkoutid != 0){
+            workoutidShared = getSharedPreferences("workoutidShared", 0);
+            SharedPreferences.Editor editor = workoutidShared.edit();
+            editor.clear();
+            editor.putInt("workoutid", finalworkoutid);
+            editor.apply();
+        }
 
 
 
@@ -86,7 +86,7 @@ public class WorkoutPreStartTwo extends AppCompatActivity {
         openMusicActivity();
         pressStart();
 
-
+        workoutData.setCountWorkout(finalworkoutid);
 
 
         Log.i("finalworkoutid: ", finalworkoutid +"");

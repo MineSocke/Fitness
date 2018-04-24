@@ -62,7 +62,7 @@ public class WorkoutData {
 
     public void setCountWorkout(int countWorkout) {
         if (countWorkout == 1){
-            countWorkout = 9;
+            countWorkout = 2;
         } else if (countWorkout == 2){
             countWorkout = 2;
         }
@@ -72,34 +72,13 @@ public class WorkoutData {
     public void setMap(int i) {
         if(i==1){
             map.add(R.drawable.medal);
-            map.add(R.drawable.medal);
-            map.add(R.drawable.bizeps);
-            map.add(R.drawable.bizeps);
-            map.add(R.drawable.bizeps);
-            map.add(R.drawable.bizeps);
-            map.add(R.drawable.bizeps);
-            map.add(R.drawable.bizeps);
             map.add(R.drawable.bizeps);
 
-            mapGif.add(R.drawable.bizepsanimated);
-            mapGif.add(R.drawable.bizepsanimated);
-            mapGif.add(R.drawable.bizepsanimated);
-            mapGif.add(R.drawable.bizepsanimated);
-            mapGif.add(R.drawable.bizepsanimated);
-            mapGif.add(R.drawable.bizepsanimated);
-            mapGif.add(R.drawable.bizepsanimated);
             mapGif.add(R.drawable.bizepsanimated);
             mapGif.add(R.drawable.bizepsanimated);
 
             workouts.add("Liegestütze");
             workouts.add("Bizeps-Curls");
-            workouts.add("Trizeps-Dips");
-            workouts.add("Crunches");
-            workouts.add("Liegestütze");
-            workouts.add("Bizeps-Curls");
-            workouts.add("Trizeps-Dips");
-            workouts.add("Crunches");
-            workouts.add("Crunches");
 
         }else if (i==2){
             map.add(R.drawable.medal);
