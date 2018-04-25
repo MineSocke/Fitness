@@ -43,11 +43,8 @@ public class Tab2 extends Fragment {
         SharedPreferences workoutidShared = this.getActivity().getSharedPreferences("workoutid", 0);
         workoutid = workoutidShared.getInt("workoutid", 0);
 
-        try {
-            workoutData.getProgressList(workoutid);  //HIER WEITERMACHEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        }catch (Exception e){
-            workoutData.setProgressList(workoutid, 0);
-        }
+        SharedPreferences sharedProgresslist = this.getActivity().getSharedPreferences("sharedProgresslist", 0);
+        progress = sharedProgresslist.getInt(String.valueOf(workoutid), 0);
 
 
         initializeProgressDots();

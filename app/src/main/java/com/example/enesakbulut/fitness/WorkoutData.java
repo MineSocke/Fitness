@@ -12,21 +12,10 @@ public class WorkoutData {
     int workoutTime;
     int countWorkout;
     int totalTime;
-    ArrayList<Integer> progressList = new ArrayList<>();
+
     ArrayList<Integer> map = new ArrayList();
     ArrayList<Integer> mapGif = new ArrayList<>();
     ArrayList<String> workouts = new ArrayList<>();
-
-    public void setProgressList(int workoutid, int progress){
-        try {
-            progressList.set(workoutid, progress);
-        }catch (Exception e){
-            for (int i = 1; i< 10; i++){
-                progressList.add(i);
-            }
-            progressList.set(workoutid, progress);
-        }
-    }
 
 
     public void setTotalTime(int totalTime) {
@@ -149,9 +138,5 @@ public class WorkoutData {
         return workout;
     }
 
-    public int getProgressList(int workoutid) {
-        int progress = progressList.get(workoutid);
-        return progress;
-    }
 
 }

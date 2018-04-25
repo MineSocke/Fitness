@@ -74,10 +74,6 @@ public class WorkoutFinish extends AppCompatActivity {
 
     }
 
-    public void saveData(){
-        int progress = workoutData.getProgressList(workoutid);
-        workoutData.setProgressList(workoutid, progress+1);
-    }
     public void saveData2(){
         SharedPreferences sharedProgresslist = getSharedPreferences("sharedProgresslist", 0);
         SharedPreferences.Editor editor = sharedProgresslist.edit();
