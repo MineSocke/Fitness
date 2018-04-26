@@ -132,7 +132,7 @@ public class WorkoutListTwo extends AppCompatActivity implements NavigationView.
         lvWorkoutList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                workoutid = i + 1;
+                workoutid = i;
                 Log.e("WORKOUTIDXD: ", workoutid + "");
                 WorkoutData workoutData = new WorkoutData();
                 SharedPreferences sharedPreferences = getSharedPreferences("workoutid", 0);

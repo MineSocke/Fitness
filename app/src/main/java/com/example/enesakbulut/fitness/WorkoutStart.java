@@ -164,16 +164,21 @@ public class WorkoutStart extends AppCompatActivity {
                 WorkoutData workoutData = new WorkoutData();
                 workoutData.setMap(workoutid);
 
+                Log.e("workoutid: ", String.valueOf(workoutid));
+                Log.e("ImageType: ", String.valueOf(imageType));
+                Log.e("ID: ", String.valueOf(id));
+
+
                 if (imageType == 1) {
                     ivWorkout.setVisibility(View.INVISIBLE);
                     gifView.setVisibility(View.VISIBLE);
-                    gifView.setImageResource(workoutData.getMapGif().get(id));
+                    gifView.setImageResource(workoutData.getMapGif().get(id-1));
                     ivSwapPicture.setImageResource(R.drawable.swappicturetwo);
                     imageType = 2;
                 } else {
                     ivWorkout.setVisibility(View.VISIBLE);
                     gifView.setVisibility(View.INVISIBLE);
-                    ivWorkout.setImageResource(workoutData.getMap().get(id));
+                    ivWorkout.setImageResource(workoutData.getMap().get(id-1));
                     ivSwapPicture.setImageResource(R.drawable.swappicture);
                     imageType = 1;
                 }
@@ -184,7 +189,7 @@ public class WorkoutStart extends AppCompatActivity {
     public void changeImage() {
         WorkoutData workoutData = new WorkoutData();
         workoutData.setMap(workoutid);
-        ivWorkout.setImageResource(workoutData.getMap().get(id));
+        ivWorkout.setImageResource(workoutData.getMap().get(id-1));
         id++;
 
     }
@@ -192,7 +197,7 @@ public class WorkoutStart extends AppCompatActivity {
     private void timer() {
         WorkoutData workoutData = new WorkoutData();
         workoutData.setMap(workoutid);
-        ivWorkout.setImageResource(workoutData.getMap().get(id));
+        ivWorkout.setImageResource(workoutData.getMap().get(id-1));
         getReady.start();
 
         tvInfo.setText("Get Ready!");
