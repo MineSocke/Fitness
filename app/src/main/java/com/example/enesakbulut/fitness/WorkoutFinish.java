@@ -20,12 +20,10 @@ public class WorkoutFinish extends AppCompatActivity {
     Button bDone;
     Button bShare;
     TextView tvCounter;
-    WorkoutData workoutData = new WorkoutData();
     private int workoutCounter;
     int workoutid;
 
     ArrayList<WorkoutProgress> data = new ArrayList<>();
-    WorkoutProgress workoutProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,9 +78,9 @@ public class WorkoutFinish extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedProgresslist.edit();
 
         int progress = sharedProgresslist.getInt(String.valueOf(workoutid), 0);
-        Log.e("progress: ", String.valueOf(progress));
+        Log.e("progressBEFORE: ", String.valueOf(progress));
         editor.putInt(String.valueOf(workoutid), progress+1);
-        Log.e("progress: ", String.valueOf(progress+1));
+        Log.e("progressAFTER: ", String.valueOf(progress+1));
         editor.apply();
 
     }
