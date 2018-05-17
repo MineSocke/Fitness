@@ -3,6 +3,7 @@ package com.example.enesakbulut.fitness;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +46,7 @@ public class Tab2 extends Fragment {
 
         SharedPreferences sharedProgresslist = this.getActivity().getSharedPreferences("sharedProgresslist", 0);
         progress = sharedProgresslist.getInt(String.valueOf(workoutid), 0);
+        Log.e("progressSharedPref: ", progress + "");
 
 
         initializeProgressDots();
@@ -74,7 +76,7 @@ public class Tab2 extends Fragment {
                 textView = (TextView) view.findViewById(R.id.textViewRound);
 
                 imageView.setImageResource(R.drawable.blackcircle);
-                if (i<= progress && progress>0) {
+                if (i< progress) {
                     imageView.setAlpha(0.5f);
                 }
 
