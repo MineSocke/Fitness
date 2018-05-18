@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,8 +23,9 @@ public class ProgressActivity extends AppCompatActivity implements NavigationVie
     int i;
 
     TextView[] tvWorkoutTitle;
+    TextView[] tvNumber;
     ImageView[] ivProgressDots;
-
+    LinearLayout[] linearLayouts;
 
 
     @Override
@@ -114,6 +116,13 @@ public class ProgressActivity extends AppCompatActivity implements NavigationVie
 
         }
         return false;
+    }
+
+    public void initializeView(){
+        tvWorkoutTitle = new TextView[2];
+        ivProgressDots = new ImageView[15];
+        tvNumber = new TextView[15];
+
     }
 }
 
