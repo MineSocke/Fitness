@@ -27,11 +27,11 @@
         <activity android:name=".WorkoutListTwo" />
         <activity
             android:name=".WorkoutPreStartTwo"
-            android:parentActivityName=".WorkoutListTwo"/>
+            android:parentActivityName=".WorkoutListTwo" />
         <activity
             android:name=".MusicActivityTwo"
-            android:parentActivityName=".WorkoutPreStartTwo"/>
+            android:parentActivityName=".WorkoutPreStartTwo" />
+        <activity android:name=".ProgressActivity"></activity>
     </application>
-
 
 </manifest>
